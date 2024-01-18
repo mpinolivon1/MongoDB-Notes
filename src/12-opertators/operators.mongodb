@@ -1,0 +1,28 @@
+use("store")
+
+
+// Using $gt (>) & $gte (>=)
+
+// db.inventory.find({ qty: { $gt: 20 } })
+/* Me trae los que son mayor que 20 */
+
+
+// db.inventory.find({ qty: { $gte: 20 } })
+/* Me trae los que son mayor o igual que 20 */
+
+// Using $lt (<) & $lte (<=)
+
+// db.inventory.find({ qty: { $lt: 20 } })
+/* Me trae los que son menor que 20 */
+
+// db.inventory.find({ qty: { $lte: 20 } })
+/* Me trae los que son menor o igual que 20 */
+
+
+// Join
+// db.inventory.find({ qty: { $gte: 25, $lte: 35 } })
+db.inventory.find({
+  "item.code": { $ne: "123" },
+  qty: { $gte: 20, $lte: 25 }
+})
+/* Es una consulta donde hacemos la búsqueda que el code sea 123 y que el qty esté entre el 20 - 25*/

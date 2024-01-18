@@ -1,0 +1,17 @@
+use("store")
+
+db.iot.updateMany(
+  // query
+  { sensor: "A001" },
+  // update
+  {
+    $pull: {
+      readings: { $gte: 3 }
+    }
+  }
+)
+
+
+/* Este es un ejemplo en donde se desea hacer una actualización, donde el sensor sea A001 y que a ellos
+se le elimine los valores que sean mayot o igual a 3
+*/

@@ -1,0 +1,18 @@
+use("store")
+
+db.inventory.updateOne({_id: 4}, {
+  $push: {
+    tags: "headphone"
+  }
+})
+
+
+/*
+
+2. $push es un operador de actualización en MongoDB que se utiliza para agregar un valor
+a un array existente en un documento. Puedes usar este operador con el método update 
+o updateOne para modificar documentos en una colección.
+
+En el ejemplo, al momento de crear el dataset, no se agregó el valor 'headphone'.
+Se agregará usando el pull
+*/

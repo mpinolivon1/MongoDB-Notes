@@ -1,0 +1,26 @@
+use("store")
+
+// db.inventory.find({ "item.description": "Single line description." })
+/* Es una consulta normal en donde me va a traer todos los doc que tengan incluido Single line description.*/
+
+
+// db.inventory.find({ "item.description": { $regex: /line/ } })
+/* Es una consulta normal en donde me va a traer todos los doc que tengan incluido line .*/
+
+// db.inventory.find({ "item.description": { $regex: /LINE/i } })
+/* Es una consulta que al agregar el i significa que haga la búsqueda en mayúsculas o minúsculas .*/
+
+// db.inventory.find({ "item.description": { $regex: /line$/i } })
+/* Es una consulta que al agregar el símbolo "$" le decimos que termine en line. También como lleva el "i" ignorará may o min .*/
+
+// db.inventory.find({ "item.description": { $regex: /^single/i } })
+/* Es una consulta que al agregar el símbolo "^" le decimos que inicie en single. También como lleva el "i" ignorará may o min .*/
+
+
+db.inventory.find({ "item.description": { $regex: /^s/im } })
+/* Es una consulta que al agregar el símbolo "im" le decimos que busque también en los saltos de línea.*/
+
+
+/*
+El operador de expresiones regulares en MongoDB es $regex, y se utiliza dentro de las consultas para buscar documentos que contengan valores que coincidan con un patrón específico
+*/

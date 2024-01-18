@@ -1,0 +1,22 @@
+use("store")
+
+db.products.updateOne(
+  // query
+  {_id: 2},
+  // change => operators
+  {
+    $inc: {
+      price: 100,
+    }
+  }
+)
+
+/*
+El operador $inc en MongoDB se utiliza para incrementar el valor de un campo numérico en un documento. 
+Este operador es parte de las operaciones de actualización y es muy útil cuando necesitas incrementar o 
+decrementar un valor numérico existente en un documento sin tener que recuperar el documento primero
+
+en este ejemplo se está aumnentando en 100 el valor del precio. Si queremos que decrezca, le anteponemos 
+el -100
+
+*/ 

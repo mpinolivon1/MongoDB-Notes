@@ -1,0 +1,23 @@
+use("store")
+
+db.products.updateOne(
+  // query
+  {_id: 2},
+  // change => operators
+  {
+    $set: {
+      name: 'Change name',
+      price: 3000,
+      tags: ['A', 'B', 'C']
+    }
+  }
+)
+
+/*
+En MongoDB, el operador $set se utiliza en combinación con el método update o updateOne
+para actualizar el valor de un campo específico dentro de un documento. Este operador permite 
+establecer o modificar el valor de un campo existente o agregar un nuevo campo si no existe.
+
+En este ejemplo se está actualizando el objeto con id 2, además se está agregando un campo nuevo "tags"
+
+*/ 

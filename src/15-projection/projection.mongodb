@@ -1,0 +1,15 @@
+use("sample_training")
+
+db.trips.find(
+  // query
+  { tripduration: { $gte: 500 } },
+  // projection
+  { tripduration: 1, usertype: 1 }
+)
+
+
+/*
+En MongoDB, la "proyección" se refiere a la capacidad de especificar qué campos se deben incluir o excluir en los resultados de una consulta. 
+Esto te permite controlar la forma en que se devuelven los documentos y reducir la cantidad de datos transferidos entre el servidor y la aplicación. 
+Puedes utilizar la proyección con métodos como find y findOne.
+*/

@@ -1,0 +1,54 @@
+use("store")
+
+db.products.drop()
+
+db.products.insertMany([
+  {
+    _id: 1,
+    name: "Prodcut 1",
+    price: 100
+  },
+  {
+    _id: 2,
+    name: "Prodcut 2",
+    price: 20
+  },
+
+  /*{
+    _id: 1,
+    name: "Prodcut 3",
+    price: 120
+  },*/
+
+  {
+    _id: 1,
+    name: "Prodcut 3",
+    price: 120
+  },
+  {
+    _id: 4,
+    name: "Prodcut 4",
+    price: 120
+  },
+  {
+    _id: 5,
+    name: "Prodcut 5",
+    price: 207
+  }
+  
+], {
+  ordered: false
+})
+
+db.products.find()
+
+
+/*
+  1. Al usar db.products.drop(), se conecta a la bd de products, toma la colección y la vacía
+  2. Al usar db.products.insertMany([]) se introducen varios datos, como un array, lo que está adentro es llamado objeto
+  3. Al usar db.products.find(), se conecta a bd de products y hace la búsqueda
+  4. Lo que se hizo en este ejercicio, fue crear primero los productos 1,2 y 3, se ve que los crea normal
+  5. Luego se intenta crear un objeto con un id duplicado, pero no lo permite, solo crea lo anterior
+  6. Lo que hace por defecto el MongoDB es que una vez detecta la duplicidad, se detiene y no creará los siguientes objectos así no tengan duplicidad de id
+  7. Si se quiere omitir solo a los que tienen duplicidad en el id, se debe usar el ordered: false
+*/

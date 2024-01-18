@@ -1,0 +1,21 @@
+use("store")
+
+
+// Using $eq
+//db.inventory.find({ qty: 20 })
+// /* Una consulta simple de que te liste todos los qty que son iguales a 20. Es un eq de manera iplícita*/
+
+// db.inventory.find({ qty: { $eq: 20 } })
+// /* Consulta en donde lista todos los qty que son iguales a 20. Es un eq de manera explícita*/
+
+// db.inventory.find({ "item.code": "123" })
+// /* Consulta en un subdocumento item.code. Cuando se hace la consulta, se debe colocar las palabras en comillas. Esto es de manera implícita */
+
+
+// db.inventory.find({ "item.code": { $eq: "123" } })
+// /* Consulta en un subdocumento item.code. Cuando se hace la consulta, se debe colocar las palabras en comillas. Esto es de manera explícita */
+
+
+// Using $ne
+db.inventory.find({ qty: { $ne: 20 } })
+// /* Consulta en un subdocumento en donde me va a traer todos los elementos en donde el qty no es 20 */

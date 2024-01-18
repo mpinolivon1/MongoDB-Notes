@@ -1,0 +1,26 @@
+use("store")
+
+// remove one element from array
+// db.inventory.updateMany({}, {
+//   $pull: {
+//     tags: "book"
+//   }
+// })
+
+// remove others elements from array
+db.inventory.updateMany({}, {
+  $pull: {
+    tags: {
+      $in: ["appliance", "school"]
+    }
+  }
+})
+
+/* 
+3. En MongoDB, el operador $pull se utiliza para eliminar elementos específicos de un array en un documento.
+
+En el primer caso, se remueve solo un elemento del array
+
+En el segundo caso, se remueve más de un elemento de un array, es importante el uso del operador "in"
+
+*/

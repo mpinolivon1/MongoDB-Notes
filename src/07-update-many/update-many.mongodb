@@ -1,0 +1,24 @@
+use("sample_training")
+
+db.zips.updateMany(
+  // query
+  { city: "CLEVELAND" },
+  // update - operators
+  {
+    $inc: {
+      pop: 1000
+    }
+  }
+)
+
+/* 
+El método updateMany() en MongoDB se utiliza para actualizar varios documentos que cumplen con un 
+criterio de búsqueda específico en una colección. Este método permite realizar modificaciones en 
+múltiples documentos al mismo tiempo.
+
+En el ejemplo, se está usando la bd que se tiene en la nube, se está ingresando a la bd de sample_training y 
+luego a zips, dentro de zips, se desea solo hacer un incremento a los que cumplan con la condición
+city: "CLEVELAND". Como se quiere hacer un incremento, se usa en inc y se le indica el campo en donde 
+se desea hacer el incremento y el valor correspondiente.
+
+*/

@@ -1,0 +1,19 @@
+use("store")
+
+db.iot.updateOne({
+  sensor: "A001",
+  date: "2022-01-04",
+}, {
+  $push: {
+    readings: 12345
+  }
+}, {
+  upsert: true
+})
+
+/* En MongoDB, el término "upsert" es una combinación de "update" e "insert". Un upsert se realiza cuando se intenta 
+actualizar un documento en una colección, y si el documento no existe, se inserta un nuevo documento con la información proporcionada.
+El método utilizado para realizar un upsert en MongoDB es update o updateOne, y se utiliza en combinación con la opción upsert: true.
+En el query cada vez que en el campo reading agreguemos un valor, en la primera ejecución se va a crear la nueva información y para los
+siguientes valores, se va a agregar la info que contenga el campo reading
+*/

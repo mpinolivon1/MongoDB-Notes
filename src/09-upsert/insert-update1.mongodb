@@ -1,0 +1,45 @@
+use("store")
+
+
+// db.iot.insertOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+//   readings: [1212]
+// })
+// /* Este query es para insertar el reading 1212 del 03.01.2022. Es importante el operador insertOne*/
+
+
+// db.iot.updateOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+// }, {
+//   $push: {
+//     readings: [2323]
+//   }
+// })
+// /*Este query es para agregar el reading [2323] del 03.01.2022. Es importante el operador updateOne. Sin embargo al agregar, este se agrega como un array y no debe ser así*/
+
+
+// db.iot.updateOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+// }, {
+//   $pop: {
+//     readings: 1
+//   }
+// })
+// /* Con el pop 1 borramos en elemento final, es decir se borrará el 2323 agregado en un array */
+
+
+// db.iot.updateOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+// }, {
+//   $push: {
+//     readings: 2323
+//   }
+// })
+// /*Este query es para agregar el reading 2323 del 03.01.2022 ya como un valor numérico*/
+
+
+

@@ -1,0 +1,48 @@
+use("store")
+
+// $in , values & arrays
+//db.inventory.find({ qty: { $in: [20, 25]} })
+/* In significa que tenga o ul elemento o el otro elemento. Me trae los valores que tenga 20 o 25. Siempre lo que se va a buscar debe estar incluido en un array */
+
+// db.inventory.find({ tags: { $in: ["book", "electronics"]} })
+/* Me hace la búsqueda en un array que incluya "book" o "electronics". Siempre lo que se va a buscar debe estar incluido en un array */
+
+/*-------------------------------- */
+
+// $nin , values & arrays
+// db.inventory.find({ qty: { $nin: [20, 25]} })
+/* Me trae los valores que NO tengan 20 o 25. Siempre lo que se va a buscar debe estar incluido en un array */
+
+// db.inventory.find({ tags: { $nin: ["book", "electronics"]} })
+/* Me hace la búsqueda en un array que NO incluyan "book" o "electronics". Siempre lo que se va a buscar debe estar incluido en un array */
+
+/*-------------------------------- */
+
+
+// db.inventory.find({ tags: "book" })
+//db.inventory.find({ tags: ["school", "book"] })
+//db.inventory.find({ tags: ["book", "school"] })
+/* En estas búsquedas, es importante el orden, en el primer query, nos traerá todo lo que contenga book, en el segundo query habrá resultado pero en el último no */
+
+
+// arrays $all
+// db.inventory.find({ tags: {$all: ["book", "school"]} })
+/* All significa que tenga ambos elementos. Esto funciona solo para arrays y no importa la posición */
+
+
+// $size
+// db.inventory.find({ tags: {$size: 2} })
+/* el operador size es para buscar sobre el tamano de los arrays que tengan esa cantidad de elementos */
+
+// $elemMatch
+// db.survey.find({ results: { $elemMatch: { product: "xyz" }} })
+/* operador $elemMatch sirve para cuando tenemos un array con objetos dentro y queremos ser exactos en la query. Se usa la database surveys */
+
+
+db.survey.find({
+  results:{
+    $elemMatch: {
+      product: "xyz",
+      score: { $gte: 7 }
+    }}
+  })
